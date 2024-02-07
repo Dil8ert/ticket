@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { Flex, Spacer } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react';
+import pepeVideo from './components/videoPEPE.MP4';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
       <Box textAlign="center" fontSize="xl">
         <Flex>
           <Box p="4" bg="black">
-            <ImageHoverer style={{ textAlign: 'left' }} />
+            <ImageHoverer />
           </Box>
           <Box
             p="4"
@@ -39,12 +40,12 @@ function App() {
               was created.
             </Text>
 
-            {/* <Box>
+            <Box textAlign="center">
               <video width="320" height="240" controls>
-                <source src="movie.mp4" type="video/mp4" />
+                <source src={pepeVideo} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-            </Box> */}
+            </Box>
           </Box>
         </Flex>
         <Box p="4" bg="green.400">
