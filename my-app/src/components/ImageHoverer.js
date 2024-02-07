@@ -20,7 +20,7 @@ const ImageHoverer = () => {
     const { offsetX, offsetY } = event.nativeEvent;
     const { width, height, top } = event.target.getBoundingClientRect();
     const x = offsetX + window.scrollX + 10;
-    const y = offsetY + window.scrollY + height + 760;
+    const y = offsetY + window.scrollY + 760;
     setTooltipPosition({ x, y });
   };  
   console.log(tooltipPosition)
