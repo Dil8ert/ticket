@@ -103,6 +103,11 @@ function App() {
                 {/* Add more cells for additional information */}
               </Tr>
             ))}
+            <Tr style={{ backgroundColor: 'blue' }}>
+              <Td>BLUECHIP</Td>
+              <Td>BLUECHIP</Td>
+              <Td>UPCOMING</Td>
+            </Tr>
           </Tbody>
         </Table>
       </Box>
