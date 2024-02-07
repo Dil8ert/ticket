@@ -13,48 +13,72 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 
-function App() {
-  const [sortedCoins, setSortedCoins] = useState([]);
+const coinList = [
+  'DOGE',
+  'SHIB',
+  'BONK',
+  'PEPE',
+  'FLOKI',
+  'PORK',
+  'WIF',
+  'MAGA',
+  'MYRO',
+  'HPOS10I',
+  'LADYS',
+  'WEN',
+  'JESUS',
+  'HONK',
+  'MONG',
+  'SMURFCAT',
+  'SPX',
+  'CHEEMS',
+];
 
-  const coinList = ['DOGE', 'PEPE', 'FLOKI'];
+const specialCoinList = ['DOGE', 'PEPE', 'FLOKI'];
+
+function App() {
+  const [liveMarketCapData, setLiveMarketCapData] = useState([]);
 
   useEffect(() => {
-    const getSortedCoinsByMarketCap = async () => {
+    const fetchLiveMarketCap = async () => {
       try {
-        const response = await axios.get('/api/listings/latest', {
-          params: {
-            start: 1,
-            limit: 100,
-            convert: 'USD',
-          },
-        });
+        const response = await axios.get(
+          '/api/cryptocurrency/listings/latest',
+          {
+            params: {
+              start: 1,
+              limit: 5000,
+              convert: 'USD',
+            },
+          }
+        );
 
         const coins = response.data.data;
 
-        // Sort coins by market cap in descending order
-        const updatedSortedCoins = coins.sort(
-          (a, b) => b.quote.USD.market_cap - a.quote.USD.market_cap
+        // Filter coins based on the provided coin list
+        const filteredCoins = coins.filter(coin =>
+          coinList.includes(coin.symbol)
         );
 
-        // Log or use the sortedCoins array as needed
-        console.log('Sorted Coins:', updatedSortedCoins);
+        // Log or use the filtered coins array as needed
+        console.log('Filtered Coins:', filteredCoins);
 
-        // Update the state with the sorted coins
-        setSortedCoins(updatedSortedCoins);
+        // Update the state with the live market cap data
+        setLiveMarketCapData(filteredCoins);
       } catch (error) {
-        console.error('Error fetching sorted coins:', error.message);
+        console.error('Error fetching live market cap:', error.message);
       }
     };
 
-    // Call the function to get and sort coins
-    getSortedCoinsByMarketCap();
+    // Call the function to fetch live market cap data
+    fetchLiveMarketCap();
   }, []);
 
   return (
     <ChakraProvider>
       <Box textAlign="center" fontSize="xl">
         <Table variant="simple" colorScheme="teal">
-          <TableCaption>Imperial to metric conversion factors</TableCaption>
+          <TableCaption>Live Market Cap for Selected Coins</TableCaption>
           <Thead>
             <Tr>
               <Th>Coin Symbol</Th>
@@ -64,11 +88,11 @@ function App() {
             </Tr>
           </Thead>
           <Tbody>
-            {sortedCoins.map(coin => (
+            {liveMarketCapData.map(coin => (
               <Tr
                 key={coin.id}
                 style={{
-                  backgroundColor: coinList.includes(coin.symbol)
+                  backgroundColor: specialCoinList.includes(coin.symbol)
                     ? 'yellow'
                     : 'white',
                 }}
@@ -79,15 +103,6 @@ function App() {
                 {/* Add more cells for additional information */}
               </Tr>
             ))}
-            <Tr
-              style={{
-                backgroundColor: 'blue',
-              }}
-            >
-              <Td>BLUECHIP</Td>
-              <Td>BLUECHIP</Td>
-              <Td>UPCOMING</Td>
-            </Tr>
           </Tbody>
         </Table>
       </Box>
