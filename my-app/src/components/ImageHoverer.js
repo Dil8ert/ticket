@@ -20,10 +20,10 @@ const ImageHoverer = () => {
     const { offsetX, offsetY } = event.nativeEvent;
     const { width, height, top } = event.target.getBoundingClientRect();
     const x = offsetX + window.scrollX + 10;
-    const y = offsetY + window.scrollY + 760;
+    const y = offsetY + window.scrollY + height + 620;
     setTooltipPosition({ x, y });
-  };  
-  console.log(tooltipPosition)
+  };
+  console.log(tooltipPosition);
   return (
     <div
       className="character-container"
@@ -54,87 +54,96 @@ const ImageHoverer = () => {
         </div>
       )}
       <map name="character-map">
-        <area
-          alt="Sonic's gloves"
-          shape="rect"
-          coords="60,425,160,525"
-          onMouseEnter={handleMouseEnter}
-          onMouseMove={updateTooltipPosition}
-          onMouseLeave={handleMouseLeave}
-          style={{ cursor: 'pointer' }}
-        />
-        <area
-          alt="Floki's signature hat"
-          shape="rect"
-          coords="180,180,350,280"
-          onMouseEnter={handleMouseEnter}
-          onMouseMove={updateTooltipPosition}
-          onMouseLeave={handleMouseLeave}
-          style={{ cursor: 'pointer' }}
-        />
-        <area
-          alt="Sonics blue shirt"
-          shape="rect"
-          coords="200,390,300,550"
-          onMouseEnter={handleMouseEnter}
-          onMouseMove={updateTooltipPosition}
-          onMouseLeave={handleMouseLeave}
-          style={{ cursor: 'pointer' }}
-        />
-        <area
-          alt="Sonics red shoes"
-          shape="rect"
-          coords="165,580,325,680"
-          onMouseEnter={handleMouseEnter}
-          onMouseMove={updateTooltipPosition}
-          onMouseLeave={handleMouseLeave}
-          style={{ cursor: 'pointer' }}
-        />
-        <area
-          alt="Sonic's gloves"
-          shape="rect"
-          coords="340,445,450,565"
-          onMouseEnter={handleMouseEnter}
-          onMouseMove={updateTooltipPosition}
-          onMouseLeave={handleMouseLeave}
-          style={{ cursor: 'pointer' }}
-        />
-        <area
-          alt="Pepe's green skin"
-          shape="rect"
-          coords="290,280,390,400"
-          onMouseEnter={handleMouseEnter}
-          onMouseMove={updateTooltipPosition}
-          onMouseLeave={handleMouseLeave}
-          style={{ cursor: 'pointer' }}
-        />
-        <area
-          alt="Doge's Eyes"
-          shape="rect"
-          coords="180,280,290,330"
-          onMouseEnter={handleMouseEnter}
-          onMouseMove={updateTooltipPosition}
-          onMouseLeave={handleMouseLeave}
-          style={{ cursor: 'pointer' }}
-        />
-        <area
-          alt="Doge's Nose"
-          shape="rect"
-          coords="210,330,240,360"
-          onMouseEnter={handleMouseEnter}
-          onMouseMove={updateTooltipPosition}
-          onMouseLeave={handleMouseLeave}
-          style={{ cursor: 'pointer' }}
-        />
-        <area
-          alt="Doge's Mouth"
-          shape="rect"
-          coords="200,365,280,385"
-          onMouseEnter={handleMouseEnter}
-          onMouseMove={updateTooltipPosition}
-          onMouseLeave={handleMouseLeave}
-          style={{ cursor: 'pointer' }}
-        />
+      <area
+        alt="Sonic's gloves"
+        shape="rect"
+        coords="50,355,140,435"
+        onMouseEnter={handleMouseEnter}
+        onMouseMove={updateTooltipPosition}
+        onMouseLeave={handleMouseLeave}
+        style={{ cursor: 'pointer' }}
+      />
+
+      <area
+        alt="Floki's signature hat"
+        shape="rect"
+        coords="150,145,290,225"
+        onMouseEnter={handleMouseEnter}
+        onMouseMove={updateTooltipPosition}
+        onMouseLeave={handleMouseLeave}
+        style={{ cursor: 'pointer' }}
+      />
+
+      <area
+        alt="Sonics blue shirt"
+        shape="rect"
+        coords="160,325,255,445"
+        onMouseEnter={handleMouseEnter}
+        onMouseMove={updateTooltipPosition}
+        onMouseLeave={handleMouseLeave}
+        style={{ cursor: 'pointer' }}
+      />
+
+      <area
+        alt="Sonics red shoes"
+        shape="rect"
+        coords="135,470,270,555"
+        onMouseEnter={handleMouseEnter}
+        onMouseMove={updateTooltipPosition}
+        onMouseLeave={handleMouseLeave}
+        style={{ cursor: 'pointer' }}
+      />
+
+      <area
+        alt="Sonic's gloves"
+        shape="rect"
+        coords="275,365,365,465"
+        onMouseEnter={handleMouseEnter}
+        onMouseMove={updateTooltipPosition}
+        onMouseLeave={handleMouseLeave}
+        style={{ cursor: 'pointer' }}
+      />
+
+      <area
+        alt="Pepe's green skin"
+        shape="rect"
+        coords="245,225,315,335"
+        onMouseEnter={handleMouseEnter}
+        onMouseMove={updateTooltipPosition}
+        onMouseLeave={handleMouseLeave}
+        style={{ cursor: 'pointer' }}
+      />
+
+      <area
+        alt="Doge's Eyes"
+        shape="rect"
+        coords="145,230,245,270"
+        onMouseEnter={handleMouseEnter}
+        onMouseMove={updateTooltipPosition}
+        onMouseLeave={handleMouseLeave}
+        style={{ cursor: 'pointer' }}
+      />
+
+      <area
+        alt="Doge's Nose"
+        shape="rect"
+        coords="170,270,200,295"
+        onMouseEnter={handleMouseEnter}
+        onMouseMove={updateTooltipPosition}
+        onMouseLeave={handleMouseLeave}
+        style={{ cursor: 'pointer' }}
+      />
+
+      <area
+        alt="Doge's Mouth"
+        shape="rect"
+        coords="165,295,235,315"
+        onMouseEnter={handleMouseEnter}
+        onMouseMove={updateTooltipPosition}
+        onMouseLeave={handleMouseLeave}
+        style={{ cursor: 'pointer' }}
+      />
+
       </map>
     </div>
   );
