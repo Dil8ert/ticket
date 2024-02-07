@@ -18,12 +18,12 @@ const ImageHoverer = () => {
 
   const updateTooltipPosition = event => {
     const { offsetX, offsetY } = event.nativeEvent;
-    const { width, height } = event.target.getBoundingClientRect();
-    const x = offsetX + window.pageXOffset + 10;
-    const y = offsetY + window.pageYOffset - height - 20; // Adjust tooltip placement above the hovered area
+    const { width, height, top } = event.target.getBoundingClientRect();
+    const x = offsetX + window.scrollX + 10;
+    const y = offsetY + window.scrollY + height + 760;
     setTooltipPosition({ x, y });
-  };
-
+  };  
+  console.log(tooltipPosition)
   return (
     <div
       className="character-container"
