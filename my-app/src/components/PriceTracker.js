@@ -72,13 +72,22 @@ function PriceTracker() {
   }, []);
 
   return (
-    <Table variant="simple" colorScheme="teal">
+    <Table
+      variant="simple"
+      style={{
+        backgroundColor: 'black',
+        borderCollapse: 'collapse',
+        border: '2px solid white',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        width: '100%', // Ensure the table takes full width
+      }}
+    >
       <TableCaption>Live Market Cap for Selected Coins</TableCaption>
       <Thead>
         <Tr>
-          <Th>Coin Symbol</Th>
-          <Th>Coin Name</Th>
-          <Th>Market Cap (USD)</Th>
+          <Th style={{ border: '1px solid white' }}>Coin Symbol</Th>
+          <Th style={{ border: '1px solid white' }}>Coin Name</Th>
+          <Th style={{ border: '1px solid white' }}>Market Cap (USD)</Th>
           {/* Add more columns as needed */}
         </Tr>
       </Thead>
@@ -88,20 +97,25 @@ function PriceTracker() {
             key={coin.id}
             style={{
               backgroundColor: specialCoinList.includes(coin.symbol)
-                ? 'yellow'
-                : 'white',
+                ? '#FFD700'
+                : 'black',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Adjust box shadow
+              fontFamily: 'monospace',
+              color: 'white',
             }}
           >
-            <Td>{coin.symbol}</Td>
-            <Td>{coin.name}</Td>
-            <Td>{coin.quote.USD.market_cap}</Td>
+            <Td style={{ border: '1px solid white' }}>{coin.symbol}</Td>
+            <Td style={{ border: '1px solid white' }}>{coin.name}</Td>
+            <Td style={{ border: '1px solid white' }}>
+              {coin.quote.USD.market_cap}
+            </Td>
             {/* Add more cells for additional information */}
           </Tr>
         ))}
         <Tr style={{ backgroundColor: 'blue' }}>
-          <Td>BLUECHIP</Td>
-          <Td>BLUECHIP</Td>
-          <Td>UPCOMING</Td>
+          <Td style={{ border: '1px solid white' }}>BLUECHIP</Td>
+          <Td style={{ border: '1px solid white' }}>BLUECHIP</Td>
+          <Td style={{ border: '1px solid white' }}>UPCOMING</Td>
         </Tr>
       </Tbody>
     </Table>

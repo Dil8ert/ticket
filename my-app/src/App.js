@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import PriceTracker from './components/PriceTracker';
 import ImageHoverer from './components/ImageHoverer';
-import { Heading } from '@chakra-ui/react';
+import { Center, Heading } from '@chakra-ui/react';
 import {
   ChakraProvider,
   Box,
@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react';
 import { Flex, Spacer } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react';
+import pepeVideo from './components/videoPEPE.MP4';
 
 function App() {
   return (
@@ -39,6 +40,13 @@ function App() {
               was created.
             </Text>
 
+            <Center style={{ padding: '4%' }}>
+              <video width="520" height="340" controls>
+                <source src={pepeVideo} type="video/ogg" />
+                Your browser does not support the video tag.
+              </video>
+            </Center>
+
             {/* <Box>
               <video width="320" height="240" controls>
                 <source src="movie.mp4" type="video/mp4" />
@@ -47,7 +55,7 @@ function App() {
             </Box> */}
           </Box>
         </Flex>
-        <Box p="4" bg="green.400">
+        <Box p="4" bg="black">
           <PriceTracker />
         </Box>
       </Box>
