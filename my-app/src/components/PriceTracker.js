@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import {
-  ChakraProvider,
-  Box,
   Table,
   TableCaption,
   Thead,
@@ -72,54 +70,147 @@ function PriceTracker() {
   }, []);
 
   return (
-    <Table
-      variant="simple"
-      style={{
-        backgroundColor: 'black',
-        borderCollapse: 'collapse',
-        border: '2px solid white',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-        width: '100%', // Ensure the table takes full width
-      }}
-    >
-      <TableCaption>Live Market Cap for Selected Coins</TableCaption>
-      <Thead>
-        <Tr>
-          <Th style={{ border: '1px solid white' }}>Coin Symbol</Th>
-          <Th style={{ border: '1px solid white' }}>Coin Name</Th>
-          <Th style={{ border: '1px solid white' }}>Market Cap (USD)</Th>
-          {/* Add more columns as needed */}
-        </Tr>
-      </Thead>
-      <Tbody>
-        {liveMarketCapData.map(coin => (
+    <div style={{ margin: '0 auto', maxWidth: '1000px',}}>
+      <Table
+        variant="simple"
+        style={{
+          // border: '2px solid black',
+          boxShadow: '10px 10px 10px rgba(0, 0, 0, 0.4)',
+          borderRadius: '8px',
+          overflow: 'hidden',
+        }}
+      >
+        <TableCaption
+          style={{
+            color: 'white',
+            fontWeight: 'bold',
+            marginBottom: '10px',
+          }}
+        >
+          Live Market Cap for Selected Coins
+        </TableCaption>
+        <Thead style={{backgroundColor : 'black'}}>
+          <Tr>
+            <Th
+              style={{
+                // border: '2px solid white',
+                // padding: '10px',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                color:'#fff'
+              }}
+            >
+              Coin Symbol
+            </Th>
+            <Th
+              style={{
+                // border: '2px solid white',
+                // padding: '10px',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                color:'#fff'
+              }}
+            >
+              Coin Name
+            </Th>
+            <Th
+              style={{
+                // border: '2px solid white',
+                // padding: '10px',
+                textAlign: 'center',
+                fontWeight: 'bold',
+                color:'#fff'
+              }}
+            >
+              Market Cap (USD)
+            </Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {liveMarketCapData.map(coin => (
+            <Tr
+              key={coin.id}
+              style={{
+                background: specialCoinList.includes(coin.symbol)
+                  ? 'linear-gradient(45deg, #FFA500, #FFD700)'
+                  : 'linear-gradient(45deg, #282c34, #4a4e59)',
+                fontFamily: 'monospace',
+                color: 'white',
+                transition: 'background-color 0.3s ease',
+              }}
+            >
+              <Td
+                style={{
+                  border: '1px solid white',
+                  padding: '10px',
+                  textAlign: 'center',
+                }}
+              >
+                {coin.symbol}
+              </Td>
+              <Td
+                style={{
+                  border: '1px solid white',
+                  padding: '10px',
+                  textAlign: 'center',
+                }}
+              >
+                {coin.name}
+              </Td>
+              <Td
+                style={{
+                  border: '1px solid white',
+                  padding: '10px',
+                  textAlign: 'center',
+                }}
+              >
+                {coin.quote.USD.market_cap}
+              </Td>
+              {/* Add more cells for additional information */}
+            </Tr>
+          ))}
           <Tr
-            key={coin.id}
             style={{
-              backgroundColor: specialCoinList.includes(coin.symbol)
-                ? '#FFD700'
-                : 'black',
-              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Adjust box shadow
+              background: 'linear-gradient(45deg, #0000FF, #00FFFF)',
               fontFamily: 'monospace',
               color: 'white',
+              transition: 'background-color 0.3s ease',
             }}
           >
-            <Td style={{ border: '1px solid white' }}>{coin.symbol}</Td>
-            <Td style={{ border: '1px solid white' }}>{coin.name}</Td>
-            <Td style={{ border: '1px solid white' }}>
-              {coin.quote.USD.market_cap}
+            <Td
+              style={{
+                border: '1px solid white',
+                padding: '10px',
+                textAlign: 'center',
+              }}
+            >
+              BLUECHIP
             </Td>
-            {/* Add more cells for additional information */}
+            <Td
+              style={{
+                border: '1px solid white',
+                padding: '10px',
+                textAlign: 'center',
+              }}
+            >
+              BLUECHIP
+            </Td>
+            <Td
+              style={{
+                border: '1px solid white',
+                padding: '10px',
+                textAlign: 'center',
+              }}
+            >
+              UPCOMING
+            </Td>
           </Tr>
-        ))}
-        <Tr style={{ backgroundColor: 'blue' }}>
-          <Td style={{ border: '1px solid white' }}>BLUECHIP</Td>
-          <Td style={{ border: '1px solid white' }}>BLUECHIP</Td>
-          <Td style={{ border: '1px solid white' }}>UPCOMING</Td>
-        </Tr>
-      </Tbody>
-    </Table>
+        </Tbody>
+      </Table>
+    </div>
   );
+  
+  
 }
 
 export default PriceTracker;

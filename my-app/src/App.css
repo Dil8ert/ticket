@@ -1,5 +1,21 @@
-/* Add this to your CSS file */
-.highlighted-row {
-    background-color: yellow; /* or any other highlighting style */
-  }
-  
+.main-container {
+  text-align: center;
+  font-size: 16px;
+  background: linear-gradient(135deg, #020516, #0e1126);
+}
+
+.bottom-panel {
+  text-align: center;
+  /* background: linear-gradient(135deg, #020516, #0e1126); */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.bottom-panel h1 {
+  font-size: 32px;
+  font-weight: 200;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
